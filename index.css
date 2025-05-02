@@ -32,11 +32,6 @@ input::placeholder {
 
 fieldset {
     margin: 0 auto;
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px; */
     padding-top: 20px ;
     border-color: #fdf000ff;
     color: #fdf000ff;
