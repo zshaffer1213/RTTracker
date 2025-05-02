@@ -14,13 +14,19 @@ body, input, select {
 }
 
 label {
-    display: block;
+    display: inline-block;
+}
+
+input#name {
+    margin-left: 41px;
 }
 
 input, select {
     border: 1px solid white;
     padding: 5px 7px 5px 7px;
     color: white;
+    width: 110px;
+    box-sizing: border-box;
 }
 
 input::placeholder {
@@ -31,9 +37,13 @@ input::placeholder {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 15px
+    justify-content: center;
+    gap: 15px;
 
+}
+
+.flex div {
+    text-align: center;
 }
 
 fieldset {
@@ -95,7 +105,7 @@ table {
 }
 
 table, tr {
-    border: 2px solid #252525;
+    border: 1px solid #252525;
     border-collapse:collapse ;
 }
 
