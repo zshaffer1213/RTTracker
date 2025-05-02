@@ -9,7 +9,7 @@ body, input, select {
 }
 
 label {
-    margin: 10px 0 0 0;
+    margin: 10px 0 0 15px;
     display: block;
 }
 
@@ -28,16 +28,16 @@ input::placeholder {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 40px
+    gap: 15px
 
 }
 
 fieldset {
-    margin: 0 auto;
+    margin: 0 auto 50px;
     padding: 20px 30px ;
     border-color: #fdf000ff;
     color: #fdf000ff;
-    min-width: 200px;
+    max-width: 350px;
 }
 
 .btn {
