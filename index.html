@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>RT Tracker</title>
+</head>
+<body>
+    <header>
+        <img src="dgtracker.PNG" alt="Dollar General Logo." class="logo-img">
+        <h1 class="title">Rolltainer Tracker</h1>
+    </header>
+    <main>
+        <section>
+            <fieldset>
+                <legend>RT INFO</legend>
+                <div>
+                    <label for="name">Who:</label>
+                    <input id="name" type="text" placeholder="Zack Shaffer or ZS">
+                </div>
+                <div>
+                    <label for="rt-type">Type of RT:</label>
+                    <select id="rt-type" name="rt-type">
+                        <option>Mixed / HBA</option>
+                        <option>Chem</option>
+                        <option>Food</option>
+                        <option>Pet</option>
+                    </select>
+                </div>
+                <button id="start-rt" class="btn">START</button>
+                </fieldset>
+        </section>
+        <section  class="container">
+            <ul class="labels">
+                <li>Name</li>
+                <li>Type</li>
+                <li>START</li>
+                <li>END</li>
+            </ul>
+            <ul class="tracker-list">
+                <li class="tracked-rt">
+                    <p id="who">Filler</p>
+                    <p id="type">Filler</p>
+                    <p id="start-time">Filler</p>
+                    <button class="btn end-btn">END</button>
+                </li>
+                <li class="tracked-rt">
+                    <p id="who">Filler</p>
+                    <p id="type">Filler</p>
+                    <p id="start-time">Filler</p>
+                    <button class="btn end-btn" id="end-btn">END</button>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <script rel="script" src="script.js"></script>
+</body>
+</html>

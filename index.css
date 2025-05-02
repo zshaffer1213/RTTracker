@@ -1,0 +1,101 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body, input, select {
+    background-color: grey;
+    color: #fdf000ff;
+}
+
+input, select {
+    border: 1px solid white;
+    padding: 5px 7px 5px 7px;
+    color: white;
+}
+
+input::placeholder {
+    color: rgba(245, 245, 245, 0.644);
+}
+
+fieldset {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px 20px;
+    border-color: #fdf000ff;
+    color: #fdf000ff;
+}
+
+.btn {
+    padding: 15px 25px;
+    border: 1px solid #fdf000ff;
+    font-weight: bold;
+    color: #fdf000ff;
+}
+
+#start-rt {
+    margin: auto;
+    font-weight: bold;
+    background-color: #252525;
+    
+    border: 1px solid #fdf000ff;
+    padding: 15px 25px;
+}
+
+#start-rt:hover, #start-rt:focus {
+    color: yellowgreen;
+    border-color: yellowgreen;
+}
+
+ul {
+    list-style: none;
+}
+
+.logo-img {
+    width: 190px;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 3rem;
+}
+
+.labels, 
+.tracker-list {
+    padding-left: 0;
+}
+
+
+.labels, 
+.tracked-rt {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+.labels {
+    margin-bottom: 30px;
+    gap: 40px;
+}
+
+.tracked-rt {
+    margin-bottom: 15px;
+}
+
+main {
+    width: 80dvw;
+    margin: 0 auto;
+}
+
+.end-btn {
+    margin-right: -30px;
+    background-color: #252525;
+    
+}
