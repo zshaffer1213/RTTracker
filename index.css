@@ -3,13 +3,17 @@ html, body {
     padding: 0;
 }
 
+main {
+    width: 80dvw;
+    margin: 0 auto;
+}
+
 body, input, select {
     background-color: grey;
     color: #fdf000ff;
 }
 
 label {
-    margin: 10px 0 0 15px;
     display: block;
 }
 
@@ -59,9 +63,6 @@ fieldset {
     border-color: yellowgreen;
 }
 
-ul {
-    list-style: none;
-}
 
 .logo-img {
     width: 190px;
@@ -75,35 +76,29 @@ h1 {
     font-size: 3rem;
 }
 
-.labels, 
-.tracker-list {
-    padding-left: 0;
-}
-
-
-.labels, 
-.tracked-rt {
-    display: flex;
-    gap: 40px;
-    justify-content: center;
-}
-
-.labels {
-    margin-bottom: 30px;
-    gap: 40px;
-}
-
-.tracked-rt {
-    margin-bottom: 15px;
-}
-
-main {
-    width: 80dvw;
-    margin: 0 auto;
-}
 
 .end-btn {
     margin-right: -30px;
     background-color: #252525;
     
+}
+
+table, tr {
+    border-bottom: 2px solid #252525;
+    border-collapse:collapse ;
+}
+
+table {
+    margin: 0 auto;
+    max-width: 300px;
+    text-align: center;
+}
+
+th, 
+td {
+    padding: 10px 40px;
+}
+
+th {
+    font-size: 2rem;
 }
