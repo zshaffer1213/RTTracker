@@ -4,7 +4,7 @@ html, body {
 }
 
 main {
-    width: 80dvw;
+    width: 85dvw;
     margin: 0 auto;
 }
 
@@ -83,22 +83,33 @@ h1 {
     
 }
 
-table, tr {
-    border-bottom: 2px solid #252525;
-    border-collapse:collapse ;
+.table-container {
+    margin: 0 auto;
+    overflow-x: auto;
 }
 
 table {
     margin: 0 auto;
-    max-width: 300px;
     text-align: center;
+    width: 100%;
 }
+
+table, tr {
+    border: 2px solid #252525;
+    border-collapse:collapse ;
+}
+
 
 th, 
 td {
-    padding: 10px 40px;
+    padding: 15px 10px ;
+    border: 1px solid #252525;
 }
 
 th {
-    font-size: 2rem;
+    font-size: 20px;
+}
+
+td {
+    font-size: 16px;
 }

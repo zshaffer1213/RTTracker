@@ -13,38 +13,47 @@
     </header>
     <main>
         <section>
-            <fieldset>
-                <legend>RT INFO</legend>
-                <div class="flex">
-                    <div>
-                        <label for="name">Who:</label>
-                        <input id="name" type="text" name="name" placeholder="Zack Shaffer or ZS">
+            <form>
+                <fieldset>
+                    <legend>RT INFO</legend>
+                    <div class="flex">
+                        <div>
+                            <label for="name">Who:</label>
+                            <input 
+                                id="name" 
+                                type="text" 
+                                name="name"
+                                placeholder="Zack Shaffer or ZS" 
+                                required>
+                        </div>
+                        <div>
+                            <label for="rt-type">Type of RT:</label>
+                            <select id="rt-type" name="rt-type">
+                                <option value="Mixed / HBA">Mixed / HBA</option>
+                                <option value="Chem">Chem</option>
+                                <option value="Food">Food</option>
+                                <option value="Pet">Pet</option>
+                            </select>
+                        </div>
                     </div>
-                    <div>
-                        <label for="rt-type">Type of RT:</label>
-                        <select id="rt-type" name="rt-type">
-                            <option value="Mixed / HBA">Mixed / HBA</option>
-                            <option value="Chem">Chem</option>
-                            <option value="Food">Food</option>
-                            <option value="Pet">Pet</option>
-                        </select>
-                    </div>
-                </div>
-                <button id="start-rt" class="btn" type="submit">START</button>
-                </fieldset>
+                    <button id="start-rt" class="btn" type="submit">START</button>
+                    </fieldset>
+                </form>
         </section>
-        <section >
+        <section class="table-container">
             <table >
-                <tr style="border-bottom: 10px solid white;">
+                <tr>
                     <thead>
-                        <th>Test</th>
-                        <th>Test</th>
-                        <th>Test</th>
-                        <th>Test</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Elapsed</th>
                     </thead>
                 </tr>
                 <tr>
                     <tbody>
+                        <td>test</td>   
                         <td>test</td>   
                         <td>test</td>   
                         <td>test</td>   
