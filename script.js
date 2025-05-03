@@ -4,27 +4,32 @@ const startRt = document.getElementById('start-rt')
 const tableBody = document.getElementById('table-body')
 const form = document.querySelector('form')
 
+let rtItems = JSON.parse(localStorage.getItem('rtItems')) || []
 
+function saveToLocalStorage() {
+    localStorage.setItem('rtItems', JSON.stringify(rtItems))
+}
 
-startRt.addEventListener('click', function(e) {
-    e.preventDefault()
-    const name = who.value
-    const type = rtType.value
-    const startTime = new Date()
-    
+rtItems.forEach(item => {
+    creatRow(item)
+});
+
+function creatRow(item) {
+
     // create row
     const row = document.createElement('tr')
 
     // create name cell
     const nameCell = document.createElement('td')
-    nameCell.textContent = name.toUpperCase()
+    nameCell.textContent = item.name.toUpperCase()
 
     // create rt type cell
     const typeCell = document.createElement('td')
-    typeCell.textContent = type
+    typeCell.textContent = item.type
 
     // create start time cell
     const startCell = document.createElement('td')
+    const startTime = new Date(item.startTime)
     startCell.textContent = startTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
 
     // crate empty end and elapsed cells for data later on
@@ -34,34 +39,64 @@ startRt.addEventListener('click', function(e) {
     // create end cell and button
     const action = document.createElement('td')
     action.colSpan = 2
-    const endBtn = document.createElement('button')
-    endBtn.className = "btn end-btn"
-    endBtn.textContent = 'End'
-    
-    // save time in ms as a dataset atrr
-    endBtn.dataset.startTime = startTime.getTime()
 
-    // addevent to end button
-    endBtn.addEventListener('click', function() {
-        const endTime = new Date()
-        const start = Number(endBtn.dataset.startTime)
-        const elapsedMS = endTime.getTime() - start
+    // check if item has an end time on load if not loads button and event listener
+    if (!item.endTime) {
+        const endBtn = document.createElement('button')
+        endBtn.className = "btn end-btn"
+        endBtn.textContent = 'End'
+        
+        // add event to end button
+        endBtn.addEventListener('click', function() {
+            const endTime = new Date()
+            const elapsedMS = endTime.getTime() - item.startTime
+            const minutes = Math.ceil(elapsedMS / 60000)
+
+            item.endTime = endTime.getTime()
+            saveToLocalStorage()
+
+            // fill in empty cells from above
+            endCell.textContent = endTime.toLocaleString([], { hour: '2-digit', minute: '2-digit' })
+            elapsedCell.textContent = `${minutes} minutes`
+
+            action.remove()
+            row.append(endCell, elapsedCell)
+
+        })    
+    
+    } else {
+        // if item has end time, create new date object and set it to the time MS then do maths and fill in the empty <td>'s
+        const endTime = new Date(item.endTime)
+        const elapsedMS = endTime.getTime() - item.startTime
         const minutes = Math.ceil(elapsedMS / 60000)
 
-        // fill in empty cells from above
         endCell.textContent = endTime.toLocaleString([], { hour: '2-digit', minute: '2-digit' })
         elapsedCell.textContent = `${minutes} minutes`
 
-        action.remove()
-        row.append(endCell, elapsedCell)
-
-    })    
-    
-    action.append(endBtn)
-    
-    row.append(nameCell, typeCell, startCell, action)
+        row.append(nameCell, typeCell, startCell, endCell, elapsedCell)
+    }
     tableBody.append(row)
+}
 
+
+
+
+startRt.addEventListener('click', function(e) {
+    e.preventDefault()
+    const name = who.value
+    const type = rtType.value
+    const startTime = new Date()
+    
+    const newItem = {
+        name: name.toUpperCase(),
+        type: type,
+        startTime: startTime.getTime(),
+        endTime: null
+    }
+
+    rtItems.push(newItem)
+    saveToLocalStorage()
+    creatRow(newItem)
     form.reset()
 })
 
