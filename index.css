@@ -63,13 +63,12 @@ fieldset {
     border: 1px solid #fdf000ff;
     font-weight: bold;
     color: #fdf000ff;
+    background-color: #252525;
 }
 
 #start-rt {
     display: block;
     margin: 30px auto 0;
-    background-color: #252525;
-    border: 1px solid #fdf000ff;
 }
 
 #start-rt:hover, #start-rt:focus {
@@ -93,7 +92,6 @@ h1 {
 
 .end-btn {
     padding: 6px 15px;
-    background-color: #252525;
 }
 
 .end-btn:hover, 

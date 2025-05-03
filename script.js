@@ -3,6 +3,7 @@ const rtType = document.getElementById('rt-type')
 const startRt = document.getElementById('start-rt')
 const tableBody = document.getElementById('table-body')
 const form = document.querySelector('form')
+const clearBtn = document.getElementById('reset-btn')
 
 let rtItems = JSON.parse(localStorage.getItem('rtItems')) || []
 console.log(rtItems)
@@ -14,6 +15,12 @@ function saveToLocalStorage() {
 rtItems.forEach(item => {
     createRow(item)
 });
+
+clearBtn.addEventListener('click', function(e){
+    e.preventDefault()
+    localStorage.clear()
+    location.reload()
+})
 
 function createRow(item) {
     console.log('creating row for:', item)
