@@ -5,23 +5,24 @@ const tableBody = document.getElementById('table-body')
 const form = document.querySelector('form')
 
 let rtItems = JSON.parse(localStorage.getItem('rtItems')) || []
-
+console.log(rtItems)
 function saveToLocalStorage() {
     localStorage.setItem('rtItems', JSON.stringify(rtItems))
 }
 
+
 rtItems.forEach(item => {
-    creatRow(item)
+    createRow(item)
 });
 
-function creatRow(item) {
-
+function createRow(item) {
+    console.log('creating row for:', item)
     // create row
     const row = document.createElement('tr')
 
     // create name cell
     const nameCell = document.createElement('td')
-    nameCell.textContent = item.name.toUpperCase()
+    nameCell.textContent = item.name
 
     // create rt type cell
     const typeCell = document.createElement('td')
@@ -62,7 +63,9 @@ function creatRow(item) {
             action.remove()
             row.append(endCell, elapsedCell)
 
-        })    
+        }) 
+        action.append(endBtn)
+        row.append(nameCell, typeCell, startCell, action)   
     
     } else {
         // if item has end time, create new date object and set it to the time MS then do maths and fill in the empty <td>'s
@@ -75,7 +78,7 @@ function creatRow(item) {
 
         row.append(nameCell, typeCell, startCell, endCell, elapsedCell)
     }
-    tableBody.append(row)
+    tableBody.appendChild(row)
 }
 
 
@@ -96,7 +99,7 @@ startRt.addEventListener('click', function(e) {
 
     rtItems.push(newItem)
     saveToLocalStorage()
-    creatRow(newItem)
+    createRow(newItem)
     form.reset()
 })
 
