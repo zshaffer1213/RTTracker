@@ -23,7 +23,8 @@
                                 id="name" 
                                 type="text" 
                                 name="name"
-                                placeholder="Initials" 
+                                placeholder="Initials"
+                                minlength="2" 
                                 required>
                         </div>
                         <div>
@@ -41,7 +42,7 @@
                 </form>
         </section>
         <section class="table-container">
-            <table >
+            <table>
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -51,14 +52,8 @@
                         <th>Elapsed</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>test</td>   
-                        <td>test</td>   
-                        <td>test</td>   
-                        <td colspan="2"><button class="btn end-btn">End</button></td>   
-                        
-                    </tr>
+                <tbody id="table-body">
+                    <!-- js will populate this tag -->
                 </tbody>
             </table>
         </section>
