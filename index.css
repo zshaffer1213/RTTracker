@@ -56,6 +56,7 @@ fieldset {
     border-color: #fdf000ff;
     color: #fdf000ff;
     max-width: 350px;
+    position: relative;
 }
 
 .btn {
@@ -90,16 +91,25 @@ h1 {
 }
 
 
-.end-btn {
+.end-btn,
+#reset-btn {
     padding: 6px 15px;
 }
 
 .end-btn:hover, 
-.end-btn:focus {
+.end-btn:focus,
+#reset-btn:hover,
+#reset-btn:focus {
     border-color: lightcoral;
     color: lightcoral;
 }    
 
+
+#reset-btn {
+    position: absolute;
+    top: 200px;
+    left: 0;
+}
 
 .table-container {
     margin: 0 auto;
