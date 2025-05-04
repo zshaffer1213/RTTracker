@@ -3,7 +3,9 @@ const rtType = document.getElementById('rt-type')
 const startRt = document.getElementById('start-rt')
 const tableBody = document.getElementById('table-body')
 const form = document.querySelector('form')
-const clearBtn = document.getElementById('reset-btn')
+const clearAllBtn = document.getElementById('reset-btn')
+const clearFirstBtn = document.getElementById('first-btn')
+const clearLastBtn = document.getElementById('last-btn')
 
 let rtItems = JSON.parse(localStorage.getItem('rtItems')) || []
 console.log(rtItems)
@@ -16,7 +18,19 @@ rtItems.forEach(item => {
     createRow(item)
 });
 
-clearBtn.addEventListener('click', function(e){
+clearLastBtn.addEventListener('click', function() {
+    rtItems.pop()
+    saveToLocalStorage()
+    location.reload()
+})
+
+clearFirstBtn.addEventListener('click', function() {
+    rtItems.shift()
+    saveToLocalStorage()
+    location.reload()
+})
+
+clearAllBtn.addEventListener('click', function(e){
     e.preventDefault()
     localStorage.clear()
     location.reload()
