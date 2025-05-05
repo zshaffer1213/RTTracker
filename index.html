@@ -32,8 +32,9 @@
                                 required>
                         </div>
                         <div>
-                            <label for="rt-type">Type of RT:</label>
+                            <label for="rt-type">Type:</label>
                             <select id="rt-type" name="rt-type">
+                                <option value="">- - - - - - - -</option>
                                 <option value="Mixed / HBA">Mixed / HBA</option>
                                 <option value="Chem">Chem</option>
                                 <option value="Food">Food</option>
@@ -43,30 +44,28 @@
                     </div>
                     <button id="start-rt" class="btn" type="submit">START ROLLTAINER</button>
                 </fieldset>
+                <div class="delete-btns">
+                    <button class="btn" id="reset-btn">🗑️ All</button>
+                    <button class="btn" id="first-btn">🗑️ Top</button>
+                    <button class="btn" id="last-btn">🗑️ Last</button>
+                </div>
             </form>
-            <div class="delete-btns">
-                <button class="btn" id="reset-btn">Clear Table</button>
-                <button class="btn" id="first-btn">Delete First</button>
-                <button class="btn" id="last-btn">Delete Last</button>
-            </div>
         </section>
         <section class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Start</th>
-                        <th>End</th>
-                        <th>Elapsed</th>
-                    </tr>
-                </thead>
-                <tbody id="table-body">
-                    <!-- js will populate this tag -->
-                </tbody>
-            </table>
+            <div class="grid-container" id="grid">
+                <div class="row table-head">
+                    <div class="item">Name</div>
+                    <div class="item">Type</div>
+                    <div class="item">Start</div>
+                    <div class="item">End</div>
+                    <div class="item">Time</div>
+                </div>
+            </div>
         </section>
     </main>
+    <footer>
+        © Zack Shaffer 2025
+    </footer>
     <script rel="script" src="script.js"></script>
 </body>
 </html>

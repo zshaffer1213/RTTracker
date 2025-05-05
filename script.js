@@ -1,7 +1,7 @@
 const who = document.getElementById('name')
 const rtType = document.getElementById('rt-type')
 const startRt = document.getElementById('start-rt')
-const tableBody = document.getElementById('table-body')
+const tableBody = document.getElementById('grid')
 const form = document.querySelector('form')
 const clearAllBtn = document.getElementById('reset-btn')
 const clearFirstBtn = document.getElementById('first-btn')
@@ -39,29 +39,37 @@ clearAllBtn.addEventListener('click', function(e){
 function createRow(item) {
     console.log('creating row for:', item)
     // create row
-    const row = document.createElement('tr')
+    const row = document.createElement('div')
+    row.classList.add('row', 'table-item')
 
     // create name cell
-    const nameCell = document.createElement('td')
+    const nameCell = document.createElement('div')
     nameCell.textContent = item.name
+    nameCell.classList.add('item')
 
     // create rt type cell
-    const typeCell = document.createElement('td')
+    const typeCell = document.createElement('div')
     typeCell.textContent = item.type
+    typeCell.classList.add('item')
 
     // create start time cell
-    const startCell = document.createElement('td')
+    const startCell = document.createElement('div')
+    startCell.classList.add('item')
     const startTime = new Date(item.startTime)
     startCell.textContent = startTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
 
     // crate empty end and elapsed cells for data later on
-    const endCell = document.createElement('td')
-    const elapsedCell = document.createElement('td')
+    const endCell = document.createElement('div')
+    endCell.classList.add('item')
+
+    const elapsedCell = document.createElement('div')
+    elapsedCell.classList.add('item')
 
     // create end cell and button
-    const action = document.createElement('td')
-    action.colSpan = 2
-
+    const action = document.createElement('div')
+    action.classList.add('item')
+    action.style.width = '125px'
+  
     // check if item has an end time on load if not loads button and event listener
     if (!item.endTime) {
         const endBtn = document.createElement('button')
@@ -79,7 +87,7 @@ function createRow(item) {
 
             // fill in empty cells from above
             endCell.textContent = endTime.toLocaleString([], { hour: '2-digit', minute: '2-digit' })
-            elapsedCell.textContent = `${minutes} minutes`
+            elapsedCell.textContent = `${minutes} min`
 
             action.remove()
             row.append(endCell, elapsedCell)
