@@ -6,13 +6,37 @@ html, body {
     margin: 0;
     padding: 0;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-shadow: 0 0 2px black;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+header {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.break {
+    display: block;
+    color: #252525;
+    margin: 0 50px 20px 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 40px auto;
+    line-height: 35px;
 }
 
 main {
     width: 85dvw;
     margin: 0 auto;
     padding-bottom:  40px;
+    flex: 1;
 }
 
 body, input, select {
@@ -83,9 +107,9 @@ fieldset {
 
 
 .logo-img {
-    width: 190px;
+    width: 140px;
     padding-top: 20px;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 h1 {
@@ -166,6 +190,6 @@ footer {
     color: white;
     background-color: #252525;
     padding: 10px;
-    position: absolute;
-    top: 100%;
+    margin-top: 50px;
+    align-self: flex-end;
 }
