@@ -5,11 +5,14 @@
 html, body {
     margin: 0;
     padding: 0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 0 0 2px black;
 }
 
 main {
     width: 85dvw;
     margin: 0 auto;
+    padding-bottom:  40px;
 }
 
 body, input, select {
@@ -18,12 +21,9 @@ body, input, select {
 }
 
 label {
-    display: inline-block;
+    margin-right: 6px;
 }
 
-input#name {
-    margin-left: 41px;
-}
 
 input, select {
     border: 1px solid white;
@@ -31,6 +31,7 @@ input, select {
     color: white;
     width: 110px;
     box-sizing: border-box;
+    border-radius: 8px;
 }
 
 input::placeholder {
@@ -66,11 +67,13 @@ fieldset {
     color: #fdf000ff;
     background-color: #252525;
     border-radius: 50px;
+    font-family: inherit;
 }
 
 #start-rt {
     display: block;
     margin: 30px auto 0;
+    letter-spacing: .75px;
 }
 
 #start-rt:hover, #start-rt:focus {
@@ -91,12 +94,15 @@ h1 {
     font-size: 3rem;
 }
 
+.end-btn {
+    padding: 10px 30px;
+    font-size: 16px;
+}
 
-.end-btn,
 #reset-btn,
 #last-btn,
 #first-btn {
-    padding: 6px 15px;
+    padding: 6px 10px;
 }
 
 .end-btn:hover, 
@@ -104,14 +110,16 @@ h1 {
 #reset-btn:hover,
 #reset-btn:focus,
 #last-btn:hover,
-#last-btn:focus {
+#last-btn:focus,
+#first-btn:hover,
+#first-btn:focus {
     border-color: lightcoral;
     color: lightcoral;
 }    
 
 .delete-btns{
     margin: 0 auto 8px ;
-    width: 100%;
+    max-width: 350px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -122,34 +130,42 @@ h1 {
     margin: 0 auto 0 0;
 }
 
-.table-container {
-    margin: 0 auto;
-    overflow-x: auto;
-}
-
-table {
-    margin: 0 auto;
-    text-align: center;
+.grid-container {
     width: 100%;
+    margin-top: 10px;
+    justify-items:center;
 }
 
-table, tr {
-    border: 1px solid #252525;
-    border-collapse:collapse ;
+.row {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    gap: 1px;
+    margin-bottom: 1px;
 }
 
 
-th, 
-td {
-    
-    border: 1px solid #252525;
+.item {
+    width: 62px;
+    text-align:center;
+    align-content: center;
+    padding: 10px 0 10px;
+    box-shadow: 0 0 0 1px black;
+    text-shadow: 0 0 2px black;
 }
 
-th {
-    padding: 15px ;
+
+.table-item:nth-child(odd) {
+    background-color: lightslategray;
 }
 
-td {
-    padding: 10px 15px;
-    height: 50px;
+
+footer {
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: #252525;
+    padding: 10px;
+    position: absolute;
+    top: 100%;
 }
