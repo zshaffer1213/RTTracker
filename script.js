@@ -18,13 +18,15 @@ rtItems.forEach(item => {
     createRow(item)
 });
 
-clearLastBtn.addEventListener('click', function() {
+clearLastBtn.addEventListener('click', function(e) {
+    e.preventDefault()
     rtItems.pop()
     saveToLocalStorage()
     location.reload()
 })
 
-clearFirstBtn.addEventListener('click', function() {
+clearFirstBtn.addEventListener('click', function(e) {
+    e.preventDefault()
     rtItems.shift()
     saveToLocalStorage()
     location.reload()
@@ -77,7 +79,8 @@ function createRow(item) {
         endBtn.textContent = 'End'
         
         // add event to end button
-        endBtn.addEventListener('click', function() {
+        endBtn.addEventListener('click', function(e) {
+            e.preventDefault()
             const endTime = new Date()
             const elapsedMS = endTime.getTime() - item.startTime
             const minutes = Math.ceil(elapsedMS / 60000)
