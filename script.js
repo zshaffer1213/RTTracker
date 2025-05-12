@@ -6,28 +6,29 @@ const form = document.querySelector('form')
 const clearAllBtn = document.getElementById('reset-btn')
 const clearFirstBtn = document.getElementById('first-btn')
 const clearLastBtn = document.getElementById('last-btn')
+const modalDisplay = document.getElementById('modal-outer')
 
-let rtItems = JSON.parse(localStorage.getItem('rtItems')) || []
-console.log(rtItems)
+let rowItems = JSON.parse(localStorage.getItem('rowItems')) || []
+// console.log(rowItems)
 function saveToLocalStorage() {
-    localStorage.setItem('rtItems', JSON.stringify(rtItems))
+    localStorage.setItem('rowItems', JSON.stringify(rowItems))
 }
 
 
-rtItems.forEach(item => {
+rowItems.forEach(item => {
     createRow(item)
 });
 
 clearLastBtn.addEventListener('click', function(e) {
     e.preventDefault()
-    rtItems.pop()
+    rowItems.pop()
     saveToLocalStorage()
     location.reload()
 })
 
 clearFirstBtn.addEventListener('click', function(e) {
     e.preventDefault()
-    rtItems.shift()
+    rowItems.shift()
     saveToLocalStorage()
     location.reload()
 })
@@ -39,7 +40,6 @@ clearAllBtn.addEventListener('click', function(e){
 })
 
 function createRow(item) {
-    console.log('creating row for:', item)
     // create row
     const row = document.createElement('div')
     row.classList.add('row', 'table-item')
@@ -48,11 +48,37 @@ function createRow(item) {
     const nameCell = document.createElement('div')
     nameCell.textContent = item.name
     nameCell.classList.add('item')
+    nameCell.style.position = 'relative'
+    
+
+    //  add edit btn
+    const editRow = document.createElement('i')
+    editRow.classList.add('fa-solid', 'fa-user-pen')
+    nameCell.appendChild(editRow)
+
+    editRow.addEventListener( 'click', function() {
+        modalDisplay.style.display = 'block'
+        document.getElementById('main').style.opacity = '.5'
+        const newNameInput = document.getElementById('new-name')
+        const newRtType = document.getElementById('new-rt-type')
+        newNameInput.placeholder = item.name
+
+        document.getElementById('edit-row').addEventListener('click', function(e) {
+            e.preventDefault()
+            item.name = newNameInput.value
+            item.type = newRtType.value
+            saveToLocalStorage()
+            modalDisplay.style.display = 'none'
+            location.reload()
+        })
+
+    })
 
     // create rt type cell
     const typeCell = document.createElement('div')
     typeCell.textContent = item.type
     typeCell.classList.add('item')
+    typeCell.dataset.rtType = item.uuid
 
     // create start time cell
     const startCell = document.createElement('div')
@@ -113,26 +139,28 @@ function createRow(item) {
     tableBody.appendChild(row)
 }
 
-
-
+document.getElementById('close-modal').addEventListener('click', function() {
+    modalDisplay.style.display = 'none'
+    document.getElementById('main').style.opacity = '1'
+})
 
 startRt.addEventListener('click', function(e) {
     e.preventDefault()
-    const name = who.value
-    const type = rtType.value
     const startTime = new Date()
     
     const newItem = {
-        name: name.toUpperCase(),
-        type: type,
+        name: who.value.toUpperCase(),
+        type: rtType.value,
         startTime: startTime.getTime(),
-        endTime: null
+        endTime: null,
     }
 
-    rtItems.push(newItem)
+    console.log(newItem)
+    rowItems.push(newItem)
     saveToLocalStorage()
     createRow(newItem)
-    form.reset()
+    who.value = ''
+    rtType.value = ''
 })
 
 

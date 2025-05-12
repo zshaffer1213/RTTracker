@@ -8,6 +8,7 @@
     <meta name="theme-color" content="#252525" />
     <link rel="icon" href="/icon-192.png" type="image/png">
     <link rel="apple-touch-icon" href="/icon-192.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>RT Tracker</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
         <img src="/assets/dgtracker.PNG" alt="Dollar General Logo." class="logo-img">
         <h1 class="title">Rolltainer  <span class="break"> Tracker </span></h1>
     </header>
-    <main>
+    <main id="main">
         <section>
             <form>
                 <fieldset>
@@ -64,9 +65,37 @@
             </div>
         </section>
     </main>
+    <div id="modal-outer">
+        <i class="fa-solid fa-x" id="close-modal"></i>
+        <div id="modal-inner">
+            <h2 class="modal-title">Edit</h2>
+            <div>
+                <label for="new-name">Who:</label>
+                <input 
+                    id="new-name" 
+                    type="text" 
+                    name="name"
+                    placeholder="Initials"
+                    minlength="2" 
+                    required>
+            </div>
+            <div>
+                <label for="new-rt-type">Type:</label>
+                <select id="new-rt-type" name="new-rt-type" style="text-align: center;">
+                    <option value="">- - - - - - - -</option>
+                    <option value="Mixed">Mixed</option>
+                    <option value="HBA">HBA</option>
+                    <option value="Chem">Chem</option>
+                    <option value="Food">Food</option>
+                    <option value="PET">Pet</option>
+                </select>
+            </div>
+            <button id="edit-row" class="btn">Update Row</button>
+        </div>
+    </div>
     <footer>
         © Zack Shaffer 2025
     </footer>
-    <script rel="script" src="script.js"></script>
+    <script rel="script" src="script.js" type="module"></script>
 </body>
 </html>
