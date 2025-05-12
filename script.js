@@ -62,6 +62,7 @@ function createRow(item) {
         const newNameInput = document.getElementById('new-name')
         const newRtType = document.getElementById('new-rt-type')
         newNameInput.placeholder = item.name
+        newRtType.value = item.type
 
         document.getElementById('edit-row').addEventListener('click', function(e) {
             e.preventDefault()
@@ -78,7 +79,6 @@ function createRow(item) {
     const typeCell = document.createElement('div')
     typeCell.textContent = item.type
     typeCell.classList.add('item')
-    typeCell.dataset.rtType = item.uuid
 
     // create start time cell
     const startCell = document.createElement('div')
