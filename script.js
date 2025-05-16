@@ -14,29 +14,39 @@ function saveToLocalStorage() {
     localStorage.setItem('rowItems', JSON.stringify(rowItems))
 }
 
-
-rowItems.forEach(item => {
-    createRow(item)
-});
+function render() {
+    tableBody.innerHTML = `<div class="row table-head">
+                    <div class="item">Name</div>
+                    <div class="item">Type</div>
+                    <div class="item">Start</div>
+                    <div class="item">End</div>
+                    <div class="item">Time</div>
+                </div>`
+    rowItems.forEach(item => {
+        createRow(item)
+    });
+    
+}
 
 clearLastBtn.addEventListener('click', function(e) {
     e.preventDefault()
     rowItems.pop()
     saveToLocalStorage()
-    location.reload()
+    render()
 })
 
 clearFirstBtn.addEventListener('click', function(e) {
     e.preventDefault()
     rowItems.shift()
     saveToLocalStorage()
-    location.reload()
+    render()
 })
 
 clearAllBtn.addEventListener('click', function(e){
     e.preventDefault()
-    localStorage.clear()
-    location.reload()
+    rowItems = []
+    saveToLocalStorage()
+    render()
 })
 
 function createRow(item) {
@@ -70,7 +80,8 @@ function createRow(item) {
             item.type = newRtType.value
             saveToLocalStorage()
             modalDisplay.style.display = 'none'
-            location.reload()
+            document.getElementById('main').style.opacity = '1'
+            render()
         })
 
     })
