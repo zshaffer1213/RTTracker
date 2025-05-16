@@ -174,6 +174,7 @@ startRt.addEventListener('click', function(e) {
     rtType.value = ''
 })
 
+render()
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js')
