@@ -77,11 +77,12 @@ input::placeholder {
 }
 
 fieldset {
-    margin: 0 auto 20px;
+    min-width: 300px;
+    max-width: 650px;
+    margin: 0 auto 2em;
     padding: 20px 30px ;
     border-color: #fdf000ff;
     color: #fdf000ff;
-    min-width: 300px;
     position: relative;
 }
 
@@ -151,7 +152,6 @@ h1 {
 
 .delete-btns{
     margin: 0 auto 8px ;
-    
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -164,7 +164,7 @@ h1 {
 
 .grid-container {
     width: 100%;
-    margin-top: 2em;
+    margin-top: 1em;
     justify-items:center;
     display: flex;
     flex-direction: column;
@@ -266,11 +266,17 @@ i:hover {
 
 /* @media  */
 
-@media (min-width: 424px) {
+@media (min-width: 400px) {
 
     .item {
         padding: 10px .5em;
         
     }
+
+    main {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
     
 }
