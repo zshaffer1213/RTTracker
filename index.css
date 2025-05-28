@@ -59,7 +59,10 @@ input, select {
     border-radius: 8px;
 }
 
-input:focus, select:focus {
+input:focus,
+input:hover,
+select:focus,
+select:hover {
     outline: none;
     border-color: yellowgreen;
     box-shadow: 0 0 5px 2px yellowgreen;
