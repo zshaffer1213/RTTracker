@@ -106,8 +106,7 @@ function createRow(item) {
 
     // create end cell and button
     const action = document.createElement('div')
-    action.classList.add('item')
-    action.style.width = '125px'
+    action.classList.add('item', 'end-cell')
   
     // check if item has an end time on load if not loads button and event listener
     if (!item.endTime) {

@@ -34,6 +34,7 @@ h1 {
 
 main {
     width: 85dvw;
+    min-width: 300px;
     margin: 0 auto;
     padding-bottom:  40px;
     flex: 1;
@@ -80,7 +81,7 @@ fieldset {
     padding: 20px 30px ;
     border-color: #fdf000ff;
     color: #fdf000ff;
-    max-width: 350px;
+    min-width: 300px;
     position: relative;
 }
 
@@ -125,6 +126,11 @@ h1 {
     font-size: 16px;
 }
 
+.end-cell {
+    grid-column-start: 4;
+    grid-column-end: 6;
+}
+
 #reset-btn,
 #last-btn,
 #first-btn {
@@ -145,7 +151,7 @@ h1 {
 
 .delete-btns{
     margin: 0 auto 8px ;
-    max-width: 350px;
+    
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -158,26 +164,31 @@ h1 {
 
 .grid-container {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 2em;
     justify-items:center;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
 }
 
 .row {
+    width: 100%;
     display: grid;
-    grid-auto-flow: column;
-    justify-content: center;
+    grid-template-columns: repeat(5, 1fr);
     gap: 1px;
-    margin-bottom: 1px;
+    justify-content: center;
+    
 }
 
 
 .item {
-    width: 62px;
-    text-align:center;
+    width: 100%;
+    min-width: 52px;
+    text-align: center;
     align-content: center;
     padding: 10px 0 10px;
     box-shadow: 0 0 0 1px black;
-    text-shadow: 0 0 2px black;
+    text-shadow: 0 0 3px black;
 }
 
 
@@ -249,4 +260,17 @@ i:hover {
 
 .modal-title {
     margin: 0;
+}
+
+
+
+/* @media  */
+
+@media (min-width: 424px) {
+
+    .item {
+        padding: 10px .5em;
+        
+    }
+    
 }
