@@ -25,6 +25,7 @@ header {
     color: #252525;
     margin: 0 40px 20px 0;
     padding: 0;
+    text-shadow: none;
 }
 
 h1 {
@@ -43,6 +44,7 @@ main {
 body, input, select {
     background-color: grey;
     color: #fdf000ff;
+    text-shadow: 0 0 3px black;
 }
 
 label {
@@ -201,7 +203,6 @@ h1 {
     align-content: center;
     padding: 10px 0 10px;
     box-shadow: 0 0 0 1px black;
-    text-shadow: 0 0 3px black;
 }
 
 
