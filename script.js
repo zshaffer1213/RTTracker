@@ -175,6 +175,35 @@ startRt.addEventListener('click', function(e) {
 
 render()
 
+
+// pwa service worker and install
+
+let deferredPrompt
+
+window.addEventListener('beforeinstallprompt', e => {
+    // prevent defult prompt
+    e.preventDefault()
+
+    deferredPrompt = e;
+
+    const installButton = document.getElementById('install-btn')
+    installButton.style.display = 'inline-block'
+
+    installButton.addEventListener('click', () => {
+        deferredPrompt.prompt()
+
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('User accepted prompt')
+            }
+            else {
+                console.log('User dismissed prompt')
+            }
+            deferredPrompt = null
+        })
+    })
+})
+
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js')
 }

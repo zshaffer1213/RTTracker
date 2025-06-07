@@ -279,6 +279,14 @@ i:hover {
     margin: 0;
 }
 
+#install-btn {
+    display: none;
+    margin: 4px 0 0 0;
+    width: fit-content;
+    text-align: center;
+}
+
+
 
 
 /* @media  */
