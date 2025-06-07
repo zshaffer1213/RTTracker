@@ -20,12 +20,15 @@ header {
     padding: 0;
 }
 
+.break, input::placeholder, #name {
+    text-shadow: none;
+}
+
 .break {
     display: block;
     color: #252525;
     margin: 0 40px 20px 0;
     padding: 0;
-    text-shadow: none;
 }
 
 h1 {
