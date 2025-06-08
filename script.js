@@ -2,10 +2,6 @@ const who = document.getElementById('name')
 const rtType = document.getElementById('rt-type')
 const startRt = document.getElementById('start-rt')
 const tableBody = document.getElementById('grid')
-const form = document.querySelector('form')
-const clearAllBtn = document.getElementById('reset-btn')
-const clearFirstBtn = document.getElementById('first-btn')
-const clearLastBtn = document.getElementById('last-btn')
 const modalDisplay = document.getElementById('modal-outer')
 
 let rowItems = JSON.parse(localStorage.getItem('rowItems')) || []
@@ -15,7 +11,8 @@ function saveToLocalStorage() {
 }
 
 function render() {
-    tableBody.innerHTML = `<div class="row table-head">
+    tableBody.innerHTML = `
+                <div class="row table-head">
                     <div class="item">Name</div>
                     <div class="item">Type</div>
                     <div class="item">Start</div>
@@ -28,25 +25,25 @@ function render() {
     
 }
 
-clearLastBtn.addEventListener('click', function(e) {
-    e.preventDefault()
-    rowItems.pop()
-    saveToLocalStorage()
-    render()
-})
-
-clearFirstBtn.addEventListener('click', function(e) {
-    e.preventDefault()
-    rowItems.shift()
-    saveToLocalStorage()
-    render()
-})
-
-clearAllBtn.addEventListener('click', function(e){
-    e.preventDefault()
-    rowItems = []
-    saveToLocalStorage()
-    render()
+document.addEventListener('click', e => {
+    if (e.target.id === 'last-btn') {
+        e.preventDefault()
+        rowItems.pop()
+        saveToLocalStorage()
+        render()
+    }
+    else if (e.target.id === 'first-btn') {
+        e.preventDefault()
+        rowItems.shift()
+        saveToLocalStorage()
+        render()
+    }
+    else if (e.target.id === 'reset-btn') {
+        e.preventDefault()
+        rowItems = []
+        saveToLocalStorage()
+        render()
+    }
 })
 
 function createRow(item) {
@@ -175,9 +172,7 @@ startRt.addEventListener('click', function(e) {
 
 render()
 
-
 // pwa service worker and install
-
 let deferredPrompt
 
 window.addEventListener('beforeinstallprompt', e => {
