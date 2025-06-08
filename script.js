@@ -136,7 +136,7 @@ function createRow(item) {
         row.append(nameCell, typeCell, startCell, action)   
     
     } else {
-        // if item has end time, create new date object and set it to the time MS then do maths and fill in the empty <td>'s
+        // if item has end time, create new date object and set it to the time MS then do maths and fill in the empty divs
         const endTime = new Date(item.endTime)
         const elapsedMS = endTime.getTime() - item.startTime
         const minutes = Math.ceil(elapsedMS / 60000)
